@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <div class="container">
+      <h1>Edit the Record</h1>
+      <form action="/records/<%=record.id%>?_method=PUT" method="POST">
+        <label for="artist">Artist:</label>
+        <input type="text" name="artist" value="<%=record.artist%>" />
+        <label for="albumName">Album Name:</label>
+        <input type="text" name="albumName" value="<%=record.albumName%>" />
+        <label for="releaseDate">Release Date:</label>
+        <input type="text" name="releaseDate" value="<%=record.releaseDate%>" />
+        <label for="label">Record Label:</label>
+        <input type="text" name="label" value="<%=record.recordLabel%>" />
+        <label for="coverArt">Cover Art:</label>
+        <input type="text" name="coverArt" value="<%=record.coverArt%>" />
+        <label for="tracklist">Tracklist:</label>
+        <input type="text" name="trackList" value="<%=record.tracklist%>" />
+        <br/>
+        <div>
+          <label for="readyToShip">
+            <input
+              type="checkbox"
+              id="readyToShip"
+              name="readyToShip"
+              <% if(record.readyToShip === true){ %>
+                checked
+              <% } %>
+            />
+            <span>This Record is Ready to Ship!</span>
+          </label>
+        </div>
+        <br>
+        <input type="submit" value="Submit">
+      <form>
+      <button type="button" name="button">
+        <a href="/records">Back</a>
+      </button>
+    </div>
+  </body>
+</html>

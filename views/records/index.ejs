@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <div class="container">
+
+      <h1>Record It!</h1>
+      <ul>
+        <% for (let record of records ) { %>
+          <li>
+            <a href="/records/<%=record._id%>">
+              <%= record.albumName %> by <%= record.artist %>
+          </li>
+       <% } %>
+      </ul>
+    </div>
+  </body>
+</html>

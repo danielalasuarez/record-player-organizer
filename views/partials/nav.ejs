@@ -1,0 +1,16 @@
+<ul class="right">
+    <li><a href="/records/new">Add a New Record To Your Collection</a></li>
+    <% if (currentUser) { %>
+    <li>Welcome <%= currentUser.username %></li>
+    <li>
+      <form action="/sessions?_method=DELETE" method="POST">
+        <input type="submit" value="Log Out" class="btn-small red" />
+      </form>
+    </li>
+    <% } else { %>
+      <!-- this creates a new user and will show up on console -->
+    <li><a href="/users/new">Sign Up</a></li> 
+    <!-- this will link back to sessions which is triggered when the username and pword are found in the database -->
+    <li><a href="/sessions/new">Log In</a></li>
+    <% } %>
+  </ul>
