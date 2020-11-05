@@ -1,20 +1,24 @@
-// DEPENDENCIES
+// DEPENDENCIES//
 const express = require('express')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const session = require('express-session');
 
-// CONFIGURATION
+// CONFIGURATION//
 require('dotenv').config()
 
 const app = express()
 const db = mongoose.connection
-const PORT = process.env.PORT
-const mongodbURI = process.env.MONGODBURI
+// Allow use of Heroku's port or your own local port, depending on the environment
+const PORT = process.env.PORT || 3000;
+//connect to the database either via heroku or locally
+const mongodbURI = process.env.MONGODBURI || 'mongodb://localhost:27017/'+ `records_auth`;
 
-// MIDDLEWARE
-app.use(methodOverride('_method'))
-app.use(express.urlencoded({ extended: true }))
+// MIDDLEWARE//
+app.use(express.static('public')); //use public folder for static assets
+app.use(methodOverride('_method')) // allow POST, PUT and DELETE from a form
+// populates req.body with parsed info from forms - if no data from forms will return an empty object {}
+app.use(express.urlencoded({ extended: true })) // extended: false - does not allow nested objects in query strings
 
 app.use(
   session({
@@ -24,7 +28,7 @@ app.use(
   })
 )
 
-//MONGO DB DATA BASE
+//MONGO DB DATA BASE//
 mongoose.connect(
     mongodbURI,
     {
@@ -38,10 +42,14 @@ mongoose.connect(
   )
 
   //error message if mongo not working 
-  db.on('error', err => console.log(err.message + ' is mongod not running?'))
+  db.on('error', (err) => console.log(err.message + ' is mongod not running?'))
+  db.on('connected', () => console.log('mongo connected: ', mongodbURI))
   db.on('disconnected', () => console.log('mongo disconnected'))
 
-// Controllers
+  // open the connection to mongo
+db.on('open' , ()=>{});
+
+// Controllers//
 const recordsController = require('./controllers/records_controller.js')
 app.use('/records', recordsController)
 
@@ -51,12 +59,12 @@ app.use('/users', usersController)
 const sessionsController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionsController)
 
-// Routes
+// Routes//
 app.get('/', (req, res) => {
     res.redirect('/records')
   })
 
-// Listener
+// Listener//
 app.listen(PORT, () => {
     console.log('🎸 Listening on port 🎹', PORT)
   })
