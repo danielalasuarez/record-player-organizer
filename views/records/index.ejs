@@ -9,31 +9,55 @@
     </nav>
     <div class="container">
 
-      <h1>Record it!</h1>
+      <h1 class='heading'>YOUR RECORD COLLECTION!</h1>
       <ul>
         <% for (let record of records ) { %>
-          <li>
+          <li class='defaultList'>
               <img src="<%= record.coverArt%>" alt="Album Art Work">
               <br>
             <a href="/records/<%=record._id%>">
-              <%= record.albumName %> by <%= record.artist %>
+               <%= record.artist %>: <%= record.albumName %>
           </li>
           <br>
           <br>
        <% } %>
       </ul>
     </div>
+    <!-- why does the first part of footer link to show page -->
     <footer>
         <%- include ('../partials/footer.ejs') %>
-      </footer>
+    </footer>
+      
   </body>
   <style>
       body{
           background-color: black;
-          color: white;
       }
+      .heading {
+        font-family: 'Anton', sans-serif;
+        font-size: 50px;
+        text-align: center;
+        margin-bottom: 59px;
+     
+      }
+      .defaultList{
+          background-color: black;
+          color: white;
+          font-family: 'Syne Mono', monospace;
+      }
+      
       img {
           max-width: 40%;
+      }
+      a{
+          color: white;
+          text-decoration: underline;
+      }
+      a:hover{
+          color: #1DB954;
+      }
+      footer {
+          text-decoration: none;
       }
   </style>
 </html>

@@ -8,17 +8,19 @@
       <%- include ('../partials/nav.ejs') %>
     </nav>
     <div class="container">
-      <h1><%=record.albumName%></h1>
-      <h3><%=record.artist%></h3> 
-      <h3><%=record.releaseDate%></h3>
-      <h3><%=record.label%></h3>
+      <h1 class="albumName"><%=record.albumName%></h1>
+      <h3 class="artist"><%=record.artist%></h3> 
       <h3><img src="<%= record.coverArt%>" alt="Album Art Work"></h3>
-      <h3><%=record.tracklist%></h3>
-      <% if(record.readyToShip === true) { %>
+      <h3><span class="releaseDate">Released: </span><%=record.releaseDate%></h3>
+      <h3><span class="label">Label: </span> <%=record.label%></h3>
+      <h3><span class="tracklist">Tracklist: </span><%=record.tracklist%></h3>
+      <div class="readyToShip">
+        <% if(record.readyToShip === true) { %>
           This Record is ready to be Shipped!
       <% } else { %>
           This Record is Currently Unavailable.
       <% } %>
+    </div>
       <br>
       <button type="button" name="button"><a href="/records/<%=record._id%>/edit">Edit</a></button>
       <br>
@@ -36,8 +38,47 @@
     </footer>
   </body>
   <style>
+    body {
+      background-color: black;
+      text-align: center;
+      font-family: 'Fjalla One', sans-serif;
+    }
     img{
       max-width: 50%;
+    } 
+    .albumName{
+        font-family: 'Anton', sans-serif;
+        font-size: 50px;
+        text-align: center;
+        margin-bottom: 59px;
+        margin-top: 57px;
+        margin-bottom: 31px;
+    }
+    .artist {
+      font-size: 30px;
+      margin-bottom: 31px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+    .releaseDate{
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #1DB954;
+    }
+    .label {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #1DB954;
+    }
+    .tracklist{
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #1DB954;
+    }
+    .readyToShip{
+      color: #1DB954;
+      margin-bottom: 10px;
     }
   </style>
 </html>
