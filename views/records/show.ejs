@@ -13,7 +13,11 @@
       <h3><img src="<%= record.coverArt%>" alt="Album Art Work"></h3>
       <h3><span class="releaseDate">Released: </span><%=record.releaseDate%></h3>
       <h3><span class="label">Label: </span> <%=record.label%></h3>
+
       <h3><span class="tracklist">Tracklist: </span><%=record.tracklist%></h3>
+
+      <!-- tracklist loop????????? -->
+
       <div class="readyToShip">
         <% if(record.readyToShip === true) { %>
           This Record is ready to be Shipped!
@@ -22,7 +26,7 @@
       <% } %>
     </div>
       <br>
-      <button type="button" name="button"><a href="/records/<%=record._id%>/edit">Edit</a></button>
+      <button type="button" name="button"><a href="/records/<%=record._id%>/edit">EDIT</a></button>
       <br>
       <br>
       <form action="/records/<%=record._id%>?_method=DELETE" method="POST">
@@ -30,7 +34,7 @@
       </form>
       <br>
       <button type="button" name="button">
-        <a href="/records">Back</a>
+        <a href="/records">BACK</a>
       </button>
     </div>
     <footer>
@@ -80,5 +84,19 @@
       color: #1DB954;
       margin-bottom: 10px;
     }
+    button, input{
+      text-decoration: none;
+      padding:10px;
+      border-radius: 24px;
+    width: 20%;
+    color: black;
+    font-weight: bolder;
+    }
+    button:hover, input:hover{
+    background-color: #1DB954;
+    cursor: pointer;
+    color: white;
+    }
+  
   </style>
 </html>

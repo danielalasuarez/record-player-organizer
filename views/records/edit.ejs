@@ -37,14 +37,52 @@
           </label>
         </div>
         <br>
-        <input type="submit" value="Submit">
-      <form>
+        <input class="submit" type="submit" value="SUBMIT">
+      </form>
+        <br>
       <button type="button" name="button">
-        <a href="/records">Back</a>
+        <a href="/records">BACK</a>
       </button>
     </div>
     <footer>
       <%- include ('../partials/footer.ejs') %>
     </footer>
   </body>
+  <style>
+    body{
+      background-color: black;
+      font-family: 'Fjalla One', sans-serif;
+    }
+    h1{
+      font-family: 'Anton', sans-serif;
+        font-size: 50px;
+        text-align: center;
+        margin-bottom: 59px;
+        margin-top: 57px;
+        margin-bottom: 31px;
+    }
+    form, label{
+      color: white;
+      font-size: 15px;
+    }
+    form:active{
+      color:#1DB954;
+    }
+    input{
+color:#1DB954;
+    }
+    button, .submit{
+      text-decoration: none;
+      padding:10px;
+      border-radius: 24px;
+    width: 20%;
+    color: black;
+    font-weight: bolder;
+    }
+    button:hover, .submit:hover{
+    background-color: #1DB954;
+    cursor: pointer;
+    color: white;
+    }
+  </style>
 </html>
