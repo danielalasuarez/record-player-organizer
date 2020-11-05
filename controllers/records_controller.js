@@ -2,7 +2,7 @@ const express = require('express')
 const Record = require('../models/records.js')
 const records = express.Router()
 
-//MIDDLEWARE
+//MIDDLEWARE//
 
 const isAuthenticated = (req, res, next) => {
     if (req.session.currentUser) {
@@ -13,7 +13,7 @@ const isAuthenticated = (req, res, next) => {
   }
 
 
-  //ROUTES
+  //ROUTES//
 
   //NEW
   records.get('/new', (req, res) => {
@@ -90,7 +90,7 @@ const isAuthenticated = (req, res, next) => {
   })
 
 
-  // SEED ROUTE
+  // SEED ROUTE//
   records.get('/setup/seed', (req, res) => {
     Record.create(
       [
@@ -146,15 +146,15 @@ const isAuthenticated = (req, res, next) => {
             ],
             readyToShip: true
           }
-      ],
-      (error, data) => {
+      ]).then(records => {
         res.redirect('/records')
-      }
-    )
+      }).catch(error => {
+        console.log(error)
+      })
   })
 
 
-  // Drop DB Route
+  // Drop DB Route//
 records.get(
     '/dropdatabase/cannotundo/areyoursure/reallysure/okthen',
     (req, res) => {

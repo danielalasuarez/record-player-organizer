@@ -43,7 +43,7 @@ mongoose.connect(
 
 // Controllers
 const recordsController = require('./controllers/records_controller.js')
-app.use('/recordss', recordsController)
+app.use('/records', recordsController)
 
 const usersController = require('./controllers/users_controller.js')
 app.use('/users', usersController)
