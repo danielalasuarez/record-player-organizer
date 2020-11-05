@@ -9,7 +9,16 @@
     </nav>
     <div class="container">
 
-      <h1 class='heading'>YOUR RECORD COLLECTION!</h1>
+      <!-- <h1 class='heading'>YOUR RECORD COLLECTION!</h1>-->
+      <h1 class='heading'>
+      <% if (currentUser) { %>
+        <li><%= currentUser.username %>'s RECORD COLLECTION!</li>
+        <li>
+            <% } else { %>
+<li>YOUR RECORD COLLECTION!</li>
+            <% } %>
+        </h1>
+
       <ul>
         <% for (let record of records ) { %>
           <li class='defaultList'>
@@ -39,6 +48,7 @@
         font-size: 50px;
         text-align: center;
         margin-bottom: 59px;
+        list-style: none;
      
       }
       .defaultList{
