@@ -9,15 +9,28 @@
     </nav>
     <div class="container">
 
-      <h1>Record It!</h1>
+      <h1>Record it!</h1>
       <ul>
         <% for (let record of records ) { %>
           <li>
+              <img src="<%= record.coverArt%>" alt="Album Art Work">
+              <br>
             <a href="/records/<%=record._id%>">
               <%= record.albumName %> by <%= record.artist %>
           </li>
+          <br>
+          <br>
        <% } %>
       </ul>
     </div>
   </body>
+  <style>
+      body{
+          background-color: black;
+          color: white;
+      }
+      img {
+          max-width: 40%;
+      }
+  </style>
 </html>

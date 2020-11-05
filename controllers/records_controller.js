@@ -79,6 +79,11 @@ const isAuthenticated = (req, res, next) => {
     })
   })
 
+//   // WELCOME PAGE ROUTE
+// records.get("/", (req, res) => {
+//   res.render("home.ejs");
+// });
+
   //INDEX
   records.get('/', (req, res) => {
     Record.find({}, (error, allRecords) => {
@@ -99,7 +104,7 @@ const isAuthenticated = (req, res, next) => {
           albumName: 'Abbey Road',
           releaseDate: 'September 1969',
           label: 'Apple Records',
-          coverArt: 'TBD',
+          coverArt: 'https://images-na.ssl-images-amazon.com/images/I/A1ppzg2gLwL._AC_SL1500_.jpg',
           tracklist: [
             {
                 number: 1,
@@ -125,7 +130,7 @@ const isAuthenticated = (req, res, next) => {
             albumName: 'The Dark Side of the Moon',
             releaseDate: 'March 1973',
             label: 'Harvest Records',
-            coverArt: 'TBD',
+            coverArt: 'https://images-na.ssl-images-amazon.com/images/I/61hw9WloObL._SL1500_.jpg',
             tracklist: [
               {
                   number: 1,
