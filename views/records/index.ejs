@@ -10,12 +10,13 @@
     <div class="container">
 
       <!-- <h1 class='heading'>YOUR RECORD COLLECTION!</h1>-->
+      <!-- the below will change the innerhtml when user logs in  -->
       <h1 class='heading'>
       <% if (currentUser) { %>
         <li><%= currentUser.username %>'s RECORD COLLECTION!</li>
         <li>
             <% } else { %>
-<li>YOUR RECORD COLLECTION!</li>
+<li>RECORD COLLECTION!</li>
             <% } %>
         </h1>
 
@@ -24,7 +25,7 @@
           <li class='defaultList'>
               <img src="<%= record.coverArt%>" alt="Album Art Work">
               <br>
-            <a href="/records/<%=record._id%>">
+            <a class="recordDetails" href="/records/<%=record._id%>">
                <%= record.artist %>: <%= record.albumName %>
             </a>
           </li>
@@ -42,6 +43,7 @@
   <style>
       body{
           background-color: black;
+          font-family: 'Fjalla One', sans-serif;
       }
       .heading {
         font-family: 'Anton', sans-serif;
@@ -60,11 +62,11 @@
       img {
           max-width: 40%;
       }
-      a{
+      .recordDetails{
           color: white;
           text-decoration: underline;
       }
-      a:hover{
+      .recordDetails:hover{
           color: #1DB954;
       }
       footer {
