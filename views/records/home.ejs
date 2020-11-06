@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,22 +11,34 @@
     </header>
     <main>
       <div class="container">
+
         <div class="welcome">
-          <h3>Keep track and showcase your Record Collection!</h3>
+
+          <!-- <h3 id="arc">Let us help you keep track of your Record Collection!</h3> -->
+          <%- include ('../partials/curvedtxt.ejs') %>
           <div class="index-button">
+            <a class="goButton" href="/records">
             <button>
-              <a href="/records/recordCollection"> Start Recording!</a>
+               LAUNCH!
             </button>
+        </a>
           </div>
+
         </div>
+
         <div class="image">
           <img
             src="https://static.billboard.com/files/media/vinyl-records-stock-2017-billboard-1548-compressed.jpg"
             alt="vinyls"
           />
         </div>
+       
       </div>
     </main>
+      <footer>
+        <%- include ('../partials/footer.ejs') %>
+      </footer>
+   
   </body>
   <style>
     body {
@@ -37,31 +49,47 @@
       display: flex;
       justify-content: space-between;
     }
+    h1{
+        font-family: 'Anton', sans-serif;
+        font-size: 50px;
+        text-align: center;
+        margin-bottom: 45px;
+       
+    }
     h3 {
-      font-size: 60px;
+        z-index: 100;
+        position: absolute;
+      font-size: 30px;
       text-align: center;
     }
-    .index-button {
+    .goButton {
       justify-content: center;
       display: flex;
+      text-decoration: none;
     }
     button {
-      background-color: #ddaf94;
-      border-radius: 15px;
-      padding: 25px;
-      cursor: pointer;
+        color: black;
+    background-color: #F1EDE3;
+    font-size: 15px;
+    border-radius: 12px;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 100;
+    position: relative;
+    top: -233px;
+    left: -7px;
+     
     }
-    a {
-      text-decoration: none;
-      color: #fdf8f5;
-      font-size: 16px;
+    button:hover{
+        background-color: #F4A3A5;;
     }
     img {
-      width: 100%;
-      height: auto;
+       width: 56%;
+    height: auto;
+    position: absolute;
+    top: 146px;
+    left: 255px;
     }
-    p {
-      opacity: 0.75;
-    }
+   
   </style>
-</html> -->
+</html>

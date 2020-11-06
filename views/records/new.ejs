@@ -34,9 +34,11 @@
         <input class="submit" type="submit" value="Submit">
       </form>
       <br>
+      <a class= "backButton" href="/records">
       <button type="button" name="button">
-        <a href="/records">BACK</a>
+        Back
       </button>
+    </a>
     </div>
     <footer>
       <%- include ('../partials/footer.ejs') %>
@@ -77,6 +79,18 @@ color:#1DB954;
     background-color: #1DB954;
     cursor: pointer;
     color: white;
+    }
+    .backButton{
+    color: black;
+    font-size: 16px;
+    }
+    .backButton:hover{
+      text-decoration: none;
+    background-color: #1DB954;
+    cursor: pointer;
+    color: white;
+    border-radius: 24px;
+    width: 20%;
     }
   </style>
 </html>

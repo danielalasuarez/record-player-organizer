@@ -34,16 +34,23 @@
       <% } %>
     </div>
       <br>
-      <button type="button" name="button"><a href="/records/<%=record._id%>/edit">EDIT</a></button>
+      <a class="editButton" href="/records/<%=record._id%>/edit">
+      <button type="button" name="button">
+        EDIT
+      </button>
+    </a>
       <br>
       <br>
       <form action="/records/<%=record._id%>?_method=DELETE" method="POST">
         <input type="submit" value="DELETE"/>
       </form>
       <br>
+      <!-- fixed button working instead of just link -->
+      <a class="backButton" href="/records">
       <button type="button" name="button">
-        <a href="/records">BACK</a>
+        BACK
       </button>
+    </a>
     </div>
     <footer>
       <%- include ('../partials/footer.ejs') %>
@@ -107,9 +114,23 @@
     font-weight: bolder;
     }
     button:hover, input:hover{
+      text-decoration: none;
     background-color: #1DB954;
     cursor: pointer;
     color: white;
+   
+    }
+    .backButton, .editButton{
+      color: black;
+    }
+    .backButton:hover, .editButton:hover{
+      text-decoration: none;
+    background-color: #1DB954;
+    cursor: pointer;
+    color: white;
+    /* padding:10px; */
+      border-radius: 24px;
+    width: 20%;
     }
   
   </style>

@@ -28,7 +28,7 @@ sessions.get('/new', (req, res) => {
         // add the user to our session
         req.session.currentUser = foundUser
         // redirect back to our home page
-        res.redirect('/')
+        res.redirect('/records')
       } else {
         // passwords do not match
         res.send('<a href="/"> password does not match </a>')

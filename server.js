@@ -61,7 +61,8 @@ app.use('/sessions', sessionsController)
 
 // Routes//
 app.get('/', (req, res) => {
-    res.redirect('/records')
+    // res.redirect('/records')
+    res.render("records/home.ejs")
   })
 
 // Listener//
